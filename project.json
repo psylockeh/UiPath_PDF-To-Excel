@@ -1,9 +1,11 @@
 {
-  "name": "PDFToExcel",
-  "projectId": "20e37ee7-2022-456a-9fc0-fd66b9a0d625",
-  "description": "Sequência para extrair informações de um PDF para uma pasta de trabalho no Excel ",
+  "name": "PDFExcel",
+  "projectId": "a51fd311-5d41-4d95-9110-5c75a217273a",
+  "description": "",
   "main": "Main.xaml",
   "dependencies": {
+    "UiPath.DocumentUnderstanding.Activities": "[2.13.2-preview]",
+    "UiPath.MicrosoftOffice365.Activities": "[2.8.23]",
     "UiPath.System.Activities": "[24.10.7]"
   },
   "webServices": [],
@@ -46,7 +48,7 @@
   "entryPoints": [
     {
       "filePath": "Main.xaml",
-      "uniqueId": "4797499d-fb10-420a-95d0-1d83d632138e",
+      "uniqueId": "80db92b2-b74e-4464-8547-e79b55b0337a",
       "input": [],
       "output": []
     }
