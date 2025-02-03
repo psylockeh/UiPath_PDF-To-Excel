@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Activity mc:Ignorable="sap sap2010 sads" x:Class="Extracao_PDF_Excel"
+    xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    xmlns:sad="http://schemas.microsoft.com/netfx/2009/xaml/activities/debugger"
+    xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+    xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+    xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Sequence DisplayName="Extração de PDF para Excel">
+        <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="pdfText" />
+            <Variable x:TypeArguments="x:String" Name="pdfPath" Default="C:\Users\debor\Documents\Debora_CV_Analista_Dev_Junior.pdf" />
+            <Variable x:TypeArguments="x:String" Name="excelPath" Default="C:\Users\debor\Documents\PDFExtraido.xlsx" />
+        </Sequence.Variables>
+
+        <!-- Ler texto do PDF -->
+        <ui:ReadPDFText FileName="[pdfPath]" Result="[pdfText]" DisplayName="Ler PDF" />
+        
+        <!-- Converter texto em DataTable -->
+        <ui:GenerateDataTableFromText Input="[pdfText]" Result="dataTable" DisplayName="Converter em Tabela" />
+        
+        <!-- Escrever no Excel -->
+        <ui:WriteRange WorkbookPath="[excelPath]" DataTable="dataTable" DisplayName="Escrever no Excel" />
+        
+    </Sequence>
+</Activity>
